@@ -416,8 +416,8 @@
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         $.mobile.changePage(desiredDest.toPage, { transition: "flip" });
-                        e.stopPropagation();
-                        e.preventDefault();
+                       // e.stopPropagation();
+                       // e.preventDefault();
 
                     } else {
                         $.mobile.hidePageLoadingMsg();
@@ -476,8 +476,8 @@
                 if (isAuthenticated == false) {
                     desiredDest = data;
                     initial = 'login';
-                   // event.stopPropagation();
-                   // event.preventDefault();
+                    event.stopPropagation();
+                    event.preventDefault();
                 }
                 //  $.mobile.hidePageLoadingMsg();
                 window.location.hash = initial;
