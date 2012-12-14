@@ -475,9 +475,9 @@
                 var initial = 'home';
                 if (isAuthenticated == false) {
                     desiredDest = data;
+                    event.preventDefault();
                     initial = 'login';
-                   // event.stopPropagation();
-                   // event.preventDefault();
+                    
                 }
                 //  $.mobile.hidePageLoadingMsg();
                 window.location.hash = initial;
