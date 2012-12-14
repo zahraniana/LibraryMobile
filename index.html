@@ -392,6 +392,7 @@
         var desiredDest;
         var status = 1;
         var tweeet = false;
+        var  last_hash = '';
         $("#loginForm").on("submit", function (e) {
             //disable the button so we can't resubmit while we wait
             $.mobile.showPageLoadingMsg();
@@ -472,23 +473,24 @@
 
         // contact us form ends
 
+	$(document).bind("pageshow", function( event, ui ){
+	    window.last_hash = document.location.hash;
+	    alert('window.last_hash: ' + window.last_hash)
+	});
 
         var pageVars = {}
         $(document).bind("pagebeforechange", function (event, data) {
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
-            	var u = $.mobile.path.parseUrl(data.toPage);
-            	alert(u.hash + ' # ' + u.pathname);
-             //   var initial = data.toPage ;
-              //  var url = $.mobile.path.parseUrl( data.toPage );
-              //  alert(url);
-              //  if (isAuthenticated == false) {
+            	alert(last_hash);
+           //       var initial = 'home' ;            
+             //   if (isAuthenticated == false) {
                //     event.preventDefault();
-                //    desiredDest = data;
-                 //   initial = 'login';
-                //}
+                 //   desiredDest = data;
+               //     initial = 'login';
+              //  }
                    //$.mobile.hidePageLoadingMsg();
-                 //  window.location.hash = initial;
-                  // $.mobile.initializePage();
+               //    window.location.hash = initial;
+                //   $.mobile.initializePage();
 
 
             }
