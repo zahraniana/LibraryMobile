@@ -404,7 +404,6 @@
             	var en_u = $.base64.encode(u);
             	var en_p = $.base64.encode(p);
             //	$.mobile.showPageLoadingMsg();
-            alert(desiredDest.toPage);
             $.ajax({
                 url: 'http://library.kfupm.edu.sa/MobServices/MobileWebServices.asmx/AuthenticateUser',
                 data: { userName: en_u, password: en_p },
@@ -418,9 +417,8 @@
                        // $.mobile.hidePageLoadingMsg();
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
-                        alert(id);
                         //e.preventDefault();
-                        $.mobile.changePage(desiredDest.toPage, { transition: "slidedown" });
+                        $.mobile.changePage(desiredDest, { transition: "flip" });
                        // e.stopPropagation();
                        // e.preventDefault();
 
