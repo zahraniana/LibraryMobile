@@ -682,7 +682,7 @@
 	        if (typeof to === 'string' && data.toPage.attr('data-needs-auth') == 'true') {
 	            var u = $.mobile.path.parseUrl(to);
 	            to = u.hash || '#' + u.pathname;
-	            alert(u.hash + '||' + u.pathname)
+	            alert(u.hash + '||' + u.pathname);
 	            // manually set hash so PathJS will be triggered
 	            if (isAuthenticated == false) {
 	            	desiredDest = u.hash;
