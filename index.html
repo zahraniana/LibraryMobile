@@ -475,22 +475,20 @@
 
 	$(document).bind("pageshow", function( event, ui ){
 	    window.last_hash = document.location.hash;
-	    alert('window.last_hash: ' + window.last_hash)
 	});
 
         var pageVars = {}
         $(document).bind("pagebeforechange", function (event, data) {
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
-            	alert(last_hash);
-           //       var initial = 'home' ;            
-             //   if (isAuthenticated == false) {
-               //     event.preventDefault();
-                 //   desiredDest = data;
-               //     initial = 'login';
-              //  }
+                 var initial = last_hash ;            
+                if (isAuthenticated == false) {
+                    event.preventDefault();
+                    desiredDest = last_hash;
+                    initial = '#login';
+                }
                    //$.mobile.hidePageLoadingMsg();
-               //    window.location.hash = initial;
-                //   $.mobile.initializePage();
+                   window.location = initial;
+               //    $.mobile.initializePage();
 
 
             }
