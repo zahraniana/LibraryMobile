@@ -418,7 +418,7 @@
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         //e.preventDefault();
-                        $.mobile.changePage(desiredDest, { transition: "flip" });
+                        $.mobile.changePage(desiredDest.toPage, { transition: "flip" });
                        // e.stopPropagation();
                        // e.preventDefault();
 
@@ -476,25 +476,16 @@
         var pageVars = {}
         $(document).bind("pagebeforechange", function (event, data) {
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
-               // var initial = 'home';
+                var initial = data.toPage ;
+                alert('data.toPage: ' + data.toPage + 'data: ' + data.toPage);
                 if (isAuthenticated == false) {
-                    desiredDest = data;
                     event.preventDefault();
-                   // initial = 'login';
-                    $.mobile.changePage("#login", { changeHash: false });
-
-                    
+                    desiredDest = data;
+                    initial = 'login';
                 }
-                else
-                {
-                	desiredDest = data;
-                	event.preventDefault();
-                	$.mobile.changePage(data.toPage, { changeHash: false });
-                
-                }
-                //  $.mobile.hidePageLoadingMsg();
-               // window.location.hash = initial;
-              //  $.mobile.initializePage();
+                   //$.mobile.hidePageLoadingMsg();
+                   window.location.hash = initial;
+                   $.mobile.initializePage();
 
 
             }
