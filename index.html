@@ -477,7 +477,8 @@
         $(document).bind("pagebeforechange", function (event, data) {
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
                 var initial = data.toPage ;
-                alert('data.toPage: ' + data.toPage + 'data: ' + data.toPage);
+                var url = $.mobile.path.parseUrl( data.toPage );
+                alert(url);
                 if (isAuthenticated == false) {
                     event.preventDefault();
                     desiredDest = data;
