@@ -679,7 +679,7 @@
 	
 	    $(document).bind('pagebeforechange', function(e, data) {
 	        var to = data.toPage;
-	        if (typeof to === 'string' && data.toPage.attr('data-needs-auth') == 'true') {
+	        if (typeof to == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
 	            var u = $.mobile.path.parseUrl(to);
 	            to = u.hash || '#' + u.pathname;
 	            alert(u.hash + '||' + u.pathname);
