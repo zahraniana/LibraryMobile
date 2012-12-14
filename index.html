@@ -6,7 +6,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet"
         type="text/css" />
-    <title>Cross XML Sample</title>
+    <title>KFUPM Libraries</title>
     <script type="text/javascript" src="cordova-2.1.0.js"></script>
     <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0.min.css" />
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
@@ -398,9 +398,10 @@
             $("#submitButton", this).attr("disabled", "disabled");
             var u = $("#username", this).val();
             var p = $("#password", this).val();
-            var en_u = $.base64.encode(u);
-            var en_p = $.base64.encode(p);
-            //if (u != '' && p != '') {
+            
+            if (u != '' && p != '') {
+            	var en_u = $.base64.encode(u);
+            	var en_p = $.base64.encode(p);
             $.ajax({
                 url: 'http://library.kfupm.edu.sa/MobServices/MobileWebServices.asmx/AuthenticateUser',
                 data: { userName: en_u, password: en_p },
@@ -427,7 +428,7 @@
                 }
             });
 
-            //  }
+              }
             return false;
         });
 
@@ -489,7 +490,7 @@
 
         $(function () {
             demo.add(function () {
-                $('#map_canvas').gmap({ 'center': '26.3072154,50.1443577', 'zoom': 15, 'disableDefaultUI': true, 'callback': function () {
+                $('#map_canvas').gmap({ 'center': '26.3072154,50.1443577', 'zoom': 15, 'disableDefaultUI': false, 'callback': function () {
                     var self = this;
                     self.addMarker({ 'position': this.get('map').getCenter() }).click(function () {
                         self.openInfoWindow({ 'content': 'KFUPM Main Library(8)' }, this);
