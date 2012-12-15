@@ -396,7 +396,6 @@
         $("#loginForm").on("submit", function (e) {
             //disable the button so we can't resubmit while we wait
             //$.mobile.showPageLoadingMsg();
-            alert(desiredDest.toPage);
             $("#submitButton", this).attr("disabled", "disabled");
             
             var u = $("#username", this).val();
@@ -492,7 +491,6 @@
         $(document).bind("pagebeforechange", function (event, data) {        
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
                  var initial = 'home' ;
-                 alert($.mobile.activePage.data('ui.prevPage'));
                 if (isAuthenticated == false) {                    
                     event.preventDefault();
                     desiredDest = data;
