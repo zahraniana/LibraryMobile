@@ -418,7 +418,7 @@
                         $.mobile.hidePageLoadingMsg();
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
-                        //e.preventDefault();
+                        e.preventDefault();
                         $.mobile.changePage(desiredDest.toPage, { transition: "slidedown" });
                        // e.stopPropagation();
                        // e.preventDefault();
