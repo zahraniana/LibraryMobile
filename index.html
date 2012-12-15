@@ -491,14 +491,14 @@
         $(document).bind("pagebeforechange", function (event, data) {        
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
             	
-                 var initial = 'home' ;
+                 var initial = '#home' ;
                 if (isAuthenticated == false) {                    
                     event.preventDefault();
                     desiredDest = data;
-                    initial = 'login';
+                    initial = '#login';
                 }
                    
-                   window.location.hash = initial;
+                   window.location = initial;
                   // $.mobile.initializePage();
                   // event.preventDefault();
                    $.mobile.hidePageLoadingMsg();
