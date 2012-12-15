@@ -416,7 +416,7 @@
                     // This is the part xml2Json comes in.
                     var JSONConvertedXML = $.xml2json(myXML);
                     if (JSONConvertedXML.GetUserData._authenticated == "true") {
-                        $.mobile.hidePageLoadingMsg();
+                        //$.mobile.hidePageLoadingMsg();
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         //e.preventDefault();
@@ -425,7 +425,7 @@
                        // e.preventDefault();
 
                     } else {
-                        $.mobile.hidePageLoadingMsg();
+                        //$.mobile.hidePageLoadingMsg();
                         $("#submitButton").removeAttr("disabled");
                         isAuthenticated = false;
                         alert(JSONConvertedXML.GetUserData.msg);
