@@ -396,7 +396,7 @@
         $("#loginForm").on("submit", function (e) {
             //disable the button so we can't resubmit while we wait
             alert(last_hash);
-            $.mobile.showPageLoadingMsg();
+           // $.mobile.showPageLoadingMsg();
             $("#submitButton", this).attr("disabled", "disabled");
             
             var u = $("#username", this).val();
@@ -405,7 +405,7 @@
             if (u != '' && p != '') {
             	var en_u = $.base64.encode(u);
             	var en_p = $.base64.encode(p);
-            //	$.mobile.showPageLoadingMsg();
+            	$.mobile.showPageLoadingMsg();
             $.ajax({
                 url: 'http://library.kfupm.edu.sa/MobServices/MobileWebServices.asmx/AuthenticateUser',
                 data: { userName: en_u, password: en_p },
@@ -489,7 +489,7 @@
                 }
                    //$.mobile.hidePageLoadingMsg();
                    window.location = initial;
-                  $.mobile.initializePage();
+                 // $.mobile.initializePage();
 
 
             }
