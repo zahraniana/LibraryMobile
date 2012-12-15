@@ -478,7 +478,8 @@
         var pageVars = {}
         $(document).bind("pagebeforechange", function (event, data) {        
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
-                 var initial = 'home' ;                 
+                 var initial = 'home' ;
+                 alert(location.hash);
                 if (isAuthenticated == false) {                    
                     event.preventDefault();
                     desiredDest = data;
