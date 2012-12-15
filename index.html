@@ -396,6 +396,7 @@
         $("#loginForm").on("submit", function (e) {
             //disable the button so we can't resubmit while we wait
             //$.mobile.showPageLoadingMsg();
+            alert(desiredDest.toPage);
             $("#submitButton", this).attr("disabled", "disabled");
             
             var u = $("#username", this).val();
@@ -419,7 +420,7 @@
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         e.preventDefault();
-                        $.mobile.changePage(desiredDest, { transition: "slidedown" });
+                        $.mobile.changePage(desiredDest.toPage, { transition: "slidedown" });
                        // e.stopPropagation();
                        // e.preventDefault();
 
@@ -483,9 +484,9 @@
                     desiredDest = data;
                     initial = 'login';
                 }
-                   //$.mobile.hidePageLoadingMsg();
+                   $.mobile.hidePageLoadingMsg();
                    window.location.hash = initial;
-                   $.mobile.initializePage();
+                   //$.mobile.initializePage();
 
 
             }
