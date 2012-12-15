@@ -395,7 +395,7 @@
         var  last_hash = '';
         $("#loginForm").on("submit", function (e) {
             //disable the button so we can't resubmit while we wait
-            $.mobile.showPageLoadingMsg();
+            //$.mobile.showPageLoadingMsg();
             $("#submitButton", this).attr("disabled", "disabled");
             
             var u = $("#username", this).val();
@@ -404,7 +404,7 @@
             if (u != '' && p != '') {
             	var en_u = $.base64.encode(u);
             	var en_p = $.base64.encode(p);
-            //	$.mobile.showPageLoadingMsg();
+            	$.mobile.showPageLoadingMsg();
             $.ajax({
                 url: 'http://library.kfupm.edu.sa/MobServices/MobileWebServices.asmx/AuthenticateUser',
                 data: { userName: en_u, password: en_p },
@@ -419,7 +419,7 @@
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         e.preventDefault();
-                        $.mobile.changePage(desiredDest.toPage, { transition: "slidedown" });
+                        $.mobile.changePage(desiredDest, { transition: "slidedown" });
                        // e.stopPropagation();
                        // e.preventDefault();
 
@@ -434,7 +434,7 @@
 		
               }
             return false;
-            $.mobile.hidePageLoadingMsg();
+            //$.mobile.hidePageLoadingMsg();
         });
 
         //end
@@ -483,7 +483,7 @@
                     desiredDest = data;
                     initial = 'login';
                 }
-                   $.mobile.hidePageLoadingMsg();
+                   //$.mobile.hidePageLoadingMsg();
                    window.location.hash = initial;
                    $.mobile.initializePage();
 
