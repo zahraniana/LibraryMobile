@@ -419,7 +419,7 @@
                         isAuthenticated = true;
                         id = JSONConvertedXML.GetUserData._kfupmId;
                         //e.preventDefault();
-                        $.mobile.changePage('#home', { transition: "slidedown" });
+                        $.mobile.changePage(desiredDest.toPage, { transition: "slidedown" });
                         e.stopPropagation();
                         e.preventDefault();
 
