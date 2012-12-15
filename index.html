@@ -492,7 +492,7 @@
         $(document).bind("pagebeforechange", function (event, data) {        
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
                  var initial = 'home' ;
-                 alert(location.hash);
+                 alert('data.prevPage.attr(id)' + data.prevPage.attr('id'));
                 if (isAuthenticated == false) {                    
                     event.preventDefault();
                     desiredDest = data;
