@@ -492,13 +492,14 @@
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
                  var initial = 'home' ;
                 if (isAuthenticated == false) {                    
-                    
+                  //  event.preventDefault();
                     desiredDest = data;
                     initial = 'login';
                 }
                    
                    window.location.hash = initial;
                   // $.mobile.initializePage();
+                  event.preventDefault();
                    $.mobile.hidePageLoadingMsg();
 
 
