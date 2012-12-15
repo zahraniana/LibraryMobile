@@ -475,12 +475,11 @@
 
 	$(document).bind("pageshow", function( event, ui ){
 	    window.last_hash = document.location.hash;
-	    alert('pageshow cliecked : ' + window.last_hash );
 	});
 
         var pageVars = {}
         $(document).bind("pagebeforechange", function (event, data) {
-        	alert('window.last_hash : ' + window.last_hash + 'initial: ' + initial);
+        	alert('window.last_hash : ' + window.last_hash + 'last_hash : ' + last_hash);
             if (typeof data.toPage == 'object' && data.toPage.attr('data-needs-auth') == 'true') {
                  var initial = last_hash ;  
                //  alert('window.last_hash : ' + window.last_hash + 'initial: ' + initial);
