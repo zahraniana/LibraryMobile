@@ -473,6 +473,19 @@
         });
 
         // contact us form ends
+        $(document).bind('mobileinit', function () {        
+              $.mobile.autoInitializePage = false;
+         });
+
+        //        $('afterinit', function () {
+        //            var initial = 'login';
+        //            if (isAuthenticated) {
+        //                initial = 'home';
+        //            }
+        //            window.location.hash = initial;
+        //            $.mobile.initializePage();
+        //            $.mobile.hidePageLoadingMsg();
+        //        });
 
 	
         var pageVars = {}
@@ -485,9 +498,10 @@
                     desiredDest = data;
                     initial = 'login';
                 }
-                   $.mobile.hidePageLoadingMsg();
+                   
                    window.location.hash = initial;
-                   //$.mobile.initializePage();
+                   $.mobile.initializePage();
+                   $.mobile.hidePageLoadingMsg();
 
 
             }
